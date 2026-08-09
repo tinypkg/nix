@@ -5,6 +5,9 @@ repo_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 package_filter=${1:-}
 version_override=${2:-}
 
+tmp_dir=$(mktemp -d)
+trap 'rm -rf "$tmp_dir"' EXIT
+
 if [[ -n $version_override && -z $package_filter ]]; then
   echo "a version override requires a package name" >&2
   exit 2
@@ -77,7 +80,7 @@ latest_version() {
 
 update_package() {
   local package=$1
-  local file current latest transform old_url_version new_url_version
+  local file work_file current latest transform old_url_version new_url_version
   file=$(package_file "$package")
   current=$(jq -r '.version' "$file")
 
@@ -112,31 +115,43 @@ update_package() {
     new_url_version=${new_url_version/.beta./-beta.}
   fi
 
+  work_file="$tmp_dir/$package.json"
+  cp "$file" "$work_file"
+
   echo "$package: $current -> $latest"
   while IFS= read -r system; do
     local old_url new_url replace_from replace_to prefetch hash old_name new_name artifact
-    old_url=$(jq -r --arg system "$system" '.sources[$system].url' "$file")
+    old_url=$(jq -r --arg system "$system" '.sources[$system].url' "$work_file")
     new_url=${old_url//"$old_url_version"/"$new_url_version"}
 
-    replace_from=$(jq -r '.update.urlReplaceFrom // ""' "$file")
-    replace_to=$(jq -r '.update.urlReplaceTo // ""' "$file")
+    replace_from=$(jq -r '.update.urlReplaceFrom // ""' "$work_file")
+    replace_to=$(jq -r '.update.urlReplaceTo // ""' "$work_file")
     if [[ -n $replace_from ]]; then new_url=${new_url//"$replace_from"/"$replace_to"}; fi
 
-    prefetch=$(nix store prefetch-file --json "$new_url")
-    hash=$(jq -er '.hash' <<<"$prefetch")
-    old_name=$(jq -r --arg system "$system" '.sources[$system].fileName // ""' "$file")
+    if ! prefetch=$(nix store prefetch-file --json "$new_url"); then
+      echo "$package: unable to prefetch $system artifact" >&2
+      return 1
+    fi
+    if ! hash=$(jq -er '.hash' <<<"$prefetch"); then
+      echo "$package: prefetch did not return a hash for $system" >&2
+      return 1
+    fi
+    old_name=$(jq -r --arg system "$system" '.sources[$system].fileName // ""' "$work_file")
     new_name=${old_name//"$old_url_version"/"$new_url_version"}
 
     artifact=$(jq -cn --arg url "$new_url" --arg hash "$hash" --arg fileName "$new_name" \
       '{url: $url, hash: $hash} + (if $fileName == "" then {} else {fileName: $fileName} end)')
-    jq --arg system "$system" --arg version "$latest" --argjson artifact "$artifact" \
+    if ! jq --arg system "$system" --arg version "$latest" --argjson artifact "$artifact" \
       '.version = $version | .sources[$system] = $artifact' \
-      "$file" >"$file.next"
-    mv "$file.next" "$file"
-  done < <(jq -r '.sources | keys[]' "$file")
+      "$work_file" >"$work_file.next"; then
+      echo "$package: unable to update metadata for $system" >&2
+      return 1
+    fi
+    mv "$work_file.next" "$work_file"
+  done < <(jq -r '.sources | keys[]' "$work_file")
 
-  jq --sort-keys . "$file" >"$file.sorted"
-  mv "$file.sorted" "$file"
+  jq --sort-keys . "$work_file" >"$work_file.sorted"
+  mv "$work_file.sorted" "$file"
 }
 
 if [[ -n $package_filter ]]; then

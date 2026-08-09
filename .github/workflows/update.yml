@@ -16,7 +16,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency:
   group: package-updates
@@ -27,6 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: main
       - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
@@ -38,20 +39,18 @@ jobs:
         run: nix flake update
       - name: Run structural checks
         run: nix develop --command ./scripts/check.sh
-      - name: Evaluate package set
-        run: nix flake check --all-systems --no-build
+      - name: Evaluate packages independently
+        run: ./scripts/check-packages.sh evaluate
       - name: Build representative prebuilt packages
-        run: nix build --no-link .#autocli-bin .#blink1-tool-bin .#revpdf-bin
-      - name: Create update pull request
-        uses: peter-evans/create-pull-request@v7
-        with:
-          branch: automation/package-updates
-          delete-branch: true
-          title: "chore: update package sources"
-          commit-message: "chore: update package sources"
-          body: |
-            Automated update of package versions, fixed hashes, and the nixpkgs lock.
-
-            The workflow evaluated all exported packages and built representative
-            archive, native-library, and AppImage packages before opening this PR.
-          labels: dependencies
+        run: ./scripts/check-packages.sh build autocli-bin blink1-tool-bin revpdf-bin
+      - name: Commit updates directly to main
+        run: |
+          if git diff --quiet && git diff --cached --quiet && [ -z "$(git status --short)" ]; then
+            echo "No package updates"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add flake.lock packages
+          git commit -m "chore: update package sources"
+          git push origin HEAD:main

@@ -1,5 +1,7 @@
 # tinypkg Nix packages
 
+[**English**](README.md) | [简体中文](README.zh-CN.md)
+
 [![Check](https://github.com/tinypkg/nix/actions/workflows/check.yml/badge.svg)](https://github.com/tinypkg/nix/actions/workflows/check.yml)
 [![Update packages](https://github.com/tinypkg/nix/actions/workflows/update.yml/badge.svg)](https://github.com/tinypkg/nix/actions/workflows/update.yml)
 
@@ -63,6 +65,22 @@ Install a package into your user profile:
 nix profile install github:tinypkg/nix#bast-bin
 ```
 
+Install several packages in one command:
+
+```bash
+nix profile install \
+  github:tinypkg/nix#bast-bin \
+  github:tinypkg/nix#mise-bin \
+  github:tinypkg/nix#fizzy-cli-bin
+```
+
+List or remove packages in your profile:
+
+```bash
+nix profile list
+nix profile remove bast-bin
+```
+
 Upgrade packages installed from this flake:
 
 ```bash
@@ -80,6 +98,41 @@ Build or download a package into `./result`:
 ```bash
 nix build github:tinypkg/nix#fizzy-cli-bin
 ```
+
+## Coming from AUR
+
+Nix does not register these packages in pacman. It places immutable package
+contents in the Nix store and adds selected executables to a user profile.
+
+| AUR / pacman concept | Nix equivalent in this repository |
+| --- | --- |
+| AUR package name | Flake package attribute after `#`, such as `bast-bin` |
+| `paru -S foo` | `nix profile install github:tinypkg/nix#foo` |
+| `pacman -Rns foo` | `nix profile remove foo` |
+| `paru -Syu` | `nix profile upgrade '.*'` |
+| `PKGBUILD` | `packages/<name>/package.nix` plus `source.json` |
+| `pkgver`, `source`, checksums | `version` and per-system sources in `source.json` |
+| `depends` | `runtimeDependencies` in `package.nix` |
+| `package()` | A shared `kind` installer, or a package-local `build.nix` override |
+| `.SRCINFO` | Flake outputs generated from the package directories |
+
+The terms used in the commands above mean:
+
+- A **flake** is a versioned Nix repository with declared inputs and outputs.
+  This repository's outputs are its packages.
+- The text after `#` is the exact package attribute to select.
+- A **profile** is the set of packages exposed to one user. It is independent
+  of pacman and can be listed, upgraded, or rolled back by Nix.
+- `/nix/store` contains immutable, content-addressed package results. Do not
+  edit files there manually.
+- A **fixed hash** proves that an upstream download has exactly the expected
+  contents. Nix refuses a changed download until its hash is updated.
+- `flake.lock` pins nixpkgs and repository tooling. Each application's version,
+  download URL, and artifact hash remain local to its own `source.json`.
+
+The `-bin` suffix keeps the familiar AUR naming convention. These packages use
+upstream prebuilt artifacts; Nix still performs an installation derivation to
+unpack and patch them, but it does not compile the applications from source.
 
 ### NixOS
 
@@ -199,18 +252,100 @@ root. AUR definitions and their release automation live in
 Every 12 hours, GitHub Actions checks each application's upstream GitHub
 Release, PyPI project, update manifest, or product endpoint directly. It
 downloads changed artifacts to calculate Nix fixed hashes, updates the pinned
-nixpkgs revision, evaluates the complete flake, and builds representative
-prebuilt packages. Changes are submitted as a pull request instead of being
-pushed directly to `main`.
+nixpkgs revision, evaluates packages independently, and attempts representative
+prebuilt-package builds. Valid changes are committed directly to `main` by
+`github-actions[bot]`. The update workflow performs the same structural,
+evaluation, and representative-build checks before creating that commit.
+
+Repository structure and formatting checks remain blocking. Package evaluation
+and representative builds run independently: a broken package is reported as a
+GitHub warning and in the job summary, then the workflow continues with the
+remaining packages instead of failing the complete check. CI never runs an
+installed application binary.
 
 Run the updater manually from **Actions → Update packages → Run workflow**.
+
+## Add a package
+
+No central package manifest is required. A new directory is discovered
+automatically by the flake:
+
+```text
+packages/example-bin/
+├── package.nix
+└── source.json
+```
+
+Start with the installation metadata in `package.nix`:
+
+```nix
+{
+  description = "Short description of the application";
+  homepage = "https://github.com/owner/example";
+  license = "mit";
+  kind = "archive";
+  executables = [ "example" ];
+  runtimeDependencies = [ "openssl" ];
+}
+```
+
+Then pin versions and artifacts independently in `source.json`:
+
+```json
+{
+  "version": "1.2.3",
+  "sources": {
+    "x86_64-linux": {
+      "url": "https://github.com/owner/example/releases/download/v1.2.3/example-x86_64.tar.gz",
+      "hash": "sha256-REPLACE_WITH_THE_REAL_SRI_HASH"
+    },
+    "aarch64-linux": {
+      "url": "https://github.com/owner/example/releases/download/v1.2.3/example-aarch64.tar.gz",
+      "hash": "sha256-REPLACE_WITH_THE_REAL_SRI_HASH"
+    }
+  },
+  "update": {
+    "method": "github",
+    "repo": "owner/example"
+  }
+}
+```
+
+Only systems present under `sources` export the package. Calculate each initial
+fixed hash with the following command; it downloads the artifact but does not
+run it:
+
+```bash
+nix store prefetch-file --json \
+  https://github.com/owner/example/releases/download/v1.2.3/example-x86_64.tar.gz
+```
+
+The common installer supports `archive`, `raw`, `deb`, `archpkg`, `appimage`,
+and `wheel`. Use `bundle = true` when an archive must retain adjacent files,
+declare library providers in `runtimeDependencies`, and add a package-local
+`build.nix` only when the shared installer cannot describe the artifact.
+
+To finish the package:
+
+1. Add its name to `tests/expected-packages.txt` in sorted order.
+2. Add one row to the package table in both language versions of the README.
+3. Run `./scripts/check.sh` for metadata and documentation checks.
+4. Run `./scripts/check-packages.sh evaluate` to evaluate every package while
+   allowing unrelated broken packages to be skipped.
+5. Commit the new directory. The GitHub updater will handle later version and
+   fixed-hash changes directly from upstream on `main`.
+
+Supported update methods are `github`, `pypi`, `json`, `yaml`, `html`, and
+`manual`. Copy a nearby `source.json` using the same upstream type rather than
+putting update logic in a central list.
 
 ## Contributing
 
 ```bash
 nix develop
 ./scripts/check.sh
-nix flake check --all-systems
+./scripts/check-packages.sh evaluate
+./scripts/check-packages.sh build autocli-bin blink1-tool-bin revpdf-bin
 ```
 
 Each application is isolated under `packages/<name>/`: `package.nix` describes

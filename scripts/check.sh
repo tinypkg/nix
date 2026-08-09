@@ -4,6 +4,8 @@ set -euo pipefail
 repo_root=${1:-$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)}
 cd "$repo_root"
 
+bash -n scripts/*.sh
+
 tmp_dir=$(mktemp -d)
 trap 'rm -rf "$tmp_dir"' EXIT
 
@@ -46,10 +48,12 @@ while IFS= read -r package; do
     exit 1
   fi
 
-  if ! grep -Fq "| \`$package\` |" README.md; then
-    echo "README is missing $package" >&2
-    exit 1
-  fi
+  for readme in README.md README.zh-CN.md; do
+    if ! grep -Fq "| \`$package\` |" "$readme"; then
+      echo "$readme is missing $package" >&2
+      exit 1
+    fi
+  done
 done <tests/expected-packages.txt
 
 echo "structural checks passed for $(wc -l <tests/expected-packages.txt) packages"
