@@ -1,0 +1,13 @@
+{
+  "sources": {
+    "x86_64-linux": {
+      "sha256": "c0c580f43eb9fa84490bf1ea7df782772259d98aa9058452c551b4f5bf571ebe",
+      "url": "https://github.com/nkzw-tech/codiff/releases/download/v1.9.2/codiff_1.9.2_amd64.deb"
+    }
+  },
+  "update": {
+    "method": "github",
+    "repo": "nkzw-tech/codiff"
+  },
+  "version": "1.9.2"
+}

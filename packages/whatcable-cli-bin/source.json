@@ -1,0 +1,13 @@
+{
+  "sources": {
+    "x86_64-linux": {
+      "sha256": "28fc097ff0201aa7f389c4ecb1a88dab851e9e5ded9fecfdaaf0566bc11feb70",
+      "url": "https://github.com/Zetaphor/whatcable-linux/releases/download/v0.1.1/whatcable-linux-cli-v0.1.1-x86_64.tar.gz"
+    }
+  },
+  "update": {
+    "method": "github",
+    "repo": "Zetaphor/whatcable-linux"
+  },
+  "version": "0.1.1"
+}

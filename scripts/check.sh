@@ -7,33 +7,45 @@ cd "$repo_root"
 tmp_dir=$(mktemp -d)
 trap 'rm -rf "$tmp_dir"' EXIT
 
-jq -e . packages/sources.json >/dev/null
-jq -r 'keys[]' packages/sources.json >"$tmp_dir/sources"
-jq -e . packages/update.json >/dev/null
-jq -r 'keys[]' packages/update.json >"$tmp_dir/updates"
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  git ls-files 'packages/*/source.json' \
+    | sed -nE 's#^packages/([^/]+)/source\.json$#\1#p' \
+    | sort >"$tmp_dir/packages"
+else
+  # Nix check inputs do not contain .git; enumerate the archived package tree.
+  for source_file in packages/*/source.json; do
+    package_dir=${source_file%/source.json}
+    basename "$package_dir"
+  done | sort >"$tmp_dir/packages"
+fi
 
-sed -nE 's/^  ([a-z0-9-]+) = \{$/\1/p' packages/metadata.nix |
-  sort >"$tmp_dir/metadata"
-
-for list in "$tmp_dir/sources" "$tmp_dir/metadata" "$tmp_dir/updates" tests/expected-packages.txt; do
-  if ! diff -u tests/expected-packages.txt "$list"; then
-    echo "package inventories differ" >&2
-    exit 1
-  fi
-done
-
-if jq -e '
-  any(
-    .[].sources[];
-    (.url | startswith("https://") | not)
-    or ((.sha256 // .md5 // "") | test("^(SKIP)?$") )
-  )
-' packages/sources.json >/dev/null; then
-  echo "every source must use HTTPS and a fixed hash" >&2
+if ! diff -u tests/expected-packages.txt "$tmp_dir/packages"; then
+  echo "package directories differ from the expected inventory" >&2
   exit 1
 fi
 
 while IFS= read -r package; do
+  metadata_file="packages/$package/package.nix"
+  source_file="packages/$package/source.json"
+
+  if [[ ! -s "$metadata_file" ]]; then
+    echo "$package is missing package.nix" >&2
+    exit 1
+  fi
+  jq -e . "$source_file" >/dev/null
+  jq -e '.update.method | type == "string" and length > 0' "$source_file" >/dev/null
+
+  if jq -e '
+    any(
+      .sources[];
+      (.url | startswith("https://") | not)
+      or ((.hash // .sha256 // .md5 // "") | test("^(SKIP)?$"))
+    )
+  ' "$source_file" >/dev/null; then
+    echo "$package has a non-HTTPS source or missing fixed hash" >&2
+    exit 1
+  fi
+
   if ! grep -Fq "| \`$package\` |" README.md; then
     echo "README is missing $package" >&2
     exit 1

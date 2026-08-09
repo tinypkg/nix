@@ -1,0 +1,13 @@
+{
+  "sources": {
+    "x86_64-linux": {
+      "sha256": "d389b100f7ff08a2043db9f0dfd27cb57c6f246858afc634c258e30d8f2726c4",
+      "url": "https://github.com/aeroxy/tunnix/releases/download/0.4.1/tunnix_linux_x86_64.zip"
+    }
+  },
+  "update": {
+    "method": "github",
+    "repo": "aeroxy/tunnix"
+  },
+  "version": "0.4.1"
+}

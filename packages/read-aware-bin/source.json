@@ -1,0 +1,13 @@
+{
+  "sources": {
+    "x86_64-linux": {
+      "sha256": "1378ebd4a8ede3a0474165ce65eac78b7fab0b20d197797f19417f2fb8cad475",
+      "url": "https://github.com/ahpxex/read-aware/releases/download/v0.2.7/ReadAware_0.2.7_amd64.deb"
+    }
+  },
+  "update": {
+    "method": "github",
+    "repo": "ahpxex/read-aware"
+  },
+  "version": "0.2.7"
+}

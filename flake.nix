@@ -51,21 +51,44 @@
             inherit system;
             config.allowUnfree = true;
           };
-          metadata = import ./packages/metadata.nix;
-          sources = builtins.fromJSON (builtins.readFile ./packages/sources.json);
+          packageDirectoryEntries = builtins.readDir ./packages;
+          packageNames = builtins.filter (
+            name: packageDirectoryEntries.${name} == "directory"
+          ) (builtins.attrNames packageDirectoryEntries);
+          packageSpecs = builtins.listToAttrs (
+            map (
+              name:
+              let
+                packageDirectory = ./packages + "/${name}";
+              in
+              {
+                inherit name;
+                value = (import (packageDirectory + "/package.nix")) // {
+                  inherit packageDirectory;
+                  sourceInfo = builtins.fromJSON (
+                    builtins.readFile (packageDirectory + "/source.json")
+                  );
+                };
+              }
+            ) packageNames
+          );
           mkPackage = import ./lib/mk-package.nix { inherit pkgs system; };
           available = pkgs.lib.filterAttrs (
-            name: _: builtins.hasAttr system sources.${name}.sources
-          ) metadata;
+            _: spec: builtins.hasAttr system spec.sourceInfo.sources
+          ) packageSpecs;
           packageSet = pkgs.lib.mapAttrs (
             name: spec:
-            mkPackage (
-              spec
-              // {
-                inherit name;
-                sourceInfo = sources.${name};
+            let
+              completeSpec = spec // { inherit name; };
+              genericPackage = mkPackage completeSpec;
+              customBuilder = spec.packageDirectory + "/build.nix";
+            in
+            if builtins.pathExists customBuilder then
+              import customBuilder {
+                inherit pkgs completeSpec genericPackage;
               }
-            )
+            else
+              genericPackage
           ) available;
           repositoryCheck = pkgs.writeShellApplication {
             name = "tinypkg-repository-check";

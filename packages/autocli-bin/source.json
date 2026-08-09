@@ -1,0 +1,17 @@
+{
+  "sources": {
+    "aarch64-linux": {
+      "sha256": "9d7c6695aba6e879f586d2052c4f829b7bf7a845cf6f7a12221bbd97e4b7cb09",
+      "url": "https://github.com/nashsu/AutoCLI/releases/download/v0.3.8/autocli-aarch64-unknown-linux-musl.tar.gz"
+    },
+    "x86_64-linux": {
+      "sha256": "6ef0f006e70d60af2d8d7d4a44e7d8267c6c5d28540046d7febc851c79045ee1",
+      "url": "https://github.com/nashsu/AutoCLI/releases/download/v0.3.8/autocli-x86_64-unknown-linux-musl.tar.gz"
+    }
+  },
+  "update": {
+    "method": "github",
+    "repo": "nashsu/AutoCLI"
+  },
+  "version": "0.3.8"
+}

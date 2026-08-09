@@ -1,0 +1,17 @@
+{
+  "sources": {
+    "aarch64-linux": {
+      "sha256": "8e66897a8fc75dffaa27648b9080b389e01ce65fd2d76ec4420b27f8a52487e9",
+      "url": "https://github.com/todbot/blink1-tool/releases/download/v2.5.0/blink1-tool-v2.5.0-linux-aarch64.zip"
+    },
+    "x86_64-linux": {
+      "sha256": "05f72855816bc5b56cadf96f3d7981c41dfadd4f67b75ac7aec80ef0191bc115",
+      "url": "https://github.com/todbot/blink1-tool/releases/download/v2.5.0/blink1-tool-v2.5.0-linux-x86_64.zip"
+    }
+  },
+  "update": {
+    "method": "github",
+    "repo": "todbot/blink1-tool"
+  },
+  "version": "2.5.0"
+}

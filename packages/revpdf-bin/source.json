@@ -1,0 +1,19 @@
+{
+  "sources": {
+    "aarch64-linux": {
+      "fileName": "revpdf.AppImage",
+      "sha256": "c1dc511f374a97d28b24cf251f1393873ea34becddee7dcd7a6299f92b3854f6",
+      "url": "https://github.com/Pawandeep-prog/revpdf-release/releases/download/v4.6.5/revpdf_editor-aarch64.AppImage"
+    },
+    "x86_64-linux": {
+      "fileName": "revpdf.AppImage",
+      "sha256": "fe2d91424b043ae07e0b351c22299442d7de7baf076aea1a19ada4a6df0afd7f",
+      "url": "https://github.com/Pawandeep-prog/revpdf-release/releases/download/v4.6.5/revpdf_editor-x86_64.AppImage"
+    }
+  },
+  "update": {
+    "method": "github",
+    "repo": "Pawandeep-prog/revpdf-release"
+  },
+  "version": "4.6.5"
+}

@@ -1,0 +1,19 @@
+{
+  "sources": {
+    "aarch64-linux": {
+      "fileName": "nmem_cli-0.10.9-py3-none-any.whl",
+      "sha256": "142c41bd764588d40f79767ed00936e121c26865725463aef3f10451022c4a28",
+      "url": "https://files.pythonhosted.org/packages/py3/n/nmem-cli/nmem_cli-0.10.9-py3-none-any.whl"
+    },
+    "x86_64-linux": {
+      "fileName": "nmem_cli-0.10.9-py3-none-any.whl",
+      "sha256": "142c41bd764588d40f79767ed00936e121c26865725463aef3f10451022c4a28",
+      "url": "https://files.pythonhosted.org/packages/py3/n/nmem-cli/nmem_cli-0.10.9-py3-none-any.whl"
+    }
+  },
+  "update": {
+    "method": "pypi",
+    "project": "nmem-cli"
+  },
+  "version": "0.10.9"
+}

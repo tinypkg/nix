@@ -26,6 +26,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add flake.lock '*.nix' 'scripts/*.sh'
+          git add flake.lock flake.nix lib packages scripts
           git commit -m "chore: format Nix sources"
           git push

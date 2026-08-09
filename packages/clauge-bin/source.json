@@ -1,0 +1,17 @@
+{
+  "sources": {
+    "aarch64-linux": {
+      "sha256": "8c32246ca7ccaf99eeead9489bc2964f7a704ea476f6f47769dce9cf201117e6",
+      "url": "https://github.com/ansxuman/Clauge/releases/download/v3.2.0/Clauge_3.2.0_arm64.deb"
+    },
+    "x86_64-linux": {
+      "sha256": "f5f1a03beaf3c7c6cde8cf1a1c7dfda0db777ab4340fc4d353e29b8d072de615",
+      "url": "https://github.com/ansxuman/Clauge/releases/download/v3.2.0/Clauge_3.2.0_amd64.deb"
+    }
+  },
+  "update": {
+    "method": "github",
+    "repo": "ansxuman/Clauge"
+  },
+  "version": "3.2.0"
+}

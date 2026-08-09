@@ -25,7 +25,8 @@ documented AUR path.
 ## Project Structure
 
 - `flake.nix` — flake-parts package, check, formatter, and development-shell outputs
-- `packages/` — one package definition per application
+- `packages/<name>/package.nix` — isolated build metadata per application
+- `packages/<name>/source.json` — isolated version, source, hash, and update policy
 - `lib/` — shared builders for recurring binary formats
 - `scripts/` — validation and maintenance helpers
 - `tests/` — structural repository checks

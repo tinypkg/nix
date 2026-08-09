@@ -213,7 +213,9 @@ nix develop
 nix flake check --all-systems
 ```
 
-Package behavior is defined in `packages/metadata.nix`; versions, URLs, and
-hashes are stored in `packages/sources.json`; independent upstream update
-strategies live in `packages/update.json`. A package does not need an AUR entry
-to be added here.
+Each application is isolated under `packages/<name>/`: `package.nix` describes
+how its prebuilt artifact is installed, while `source.json` owns its version,
+per-architecture URLs, fixed hashes, and independent upstream update strategy.
+A package does not need an AUR entry to be added here. Packages with unusual
+installation requirements can add a local `build.nix` without changing other
+applications.

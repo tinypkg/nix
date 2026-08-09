@@ -1,0 +1,17 @@
+{
+  "sources": {
+    "aarch64-linux": {
+      "sha256": "b96a0522929b28931a68fc11c2c5b957990d10caa831629252831631bba89dde",
+      "url": "https://github.com/basecamp/fizzy-cli/releases/download/v4.0.1/fizzy_4.0.1_linux_arm64.tar.gz"
+    },
+    "x86_64-linux": {
+      "sha256": "8a3a6b48d6eb732a189a3b18d863a1db6497a55926fd6efa4ace92e9d0a30572",
+      "url": "https://github.com/basecamp/fizzy-cli/releases/download/v4.0.1/fizzy_4.0.1_linux_amd64.tar.gz"
+    }
+  },
+  "update": {
+    "method": "github",
+    "repo": "basecamp/fizzy-cli"
+  },
+  "version": "4.0.1"
+}

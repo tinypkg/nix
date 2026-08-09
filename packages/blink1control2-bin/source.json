@@ -1,0 +1,13 @@
+{
+  "sources": {
+    "x86_64-linux": {
+      "sha256": "382d2a6a67a02c9d464b09fcdc46c0668ad930f262b94007783d58cde78a1bba",
+      "url": "https://github.com/todbot/Blink1Control2/releases/download/v2.2.9/Blink1Control2-2.2.9-linux-amd64.deb"
+    }
+  },
+  "update": {
+    "method": "github",
+    "repo": "todbot/Blink1Control2"
+  },
+  "version": "2.2.9"
+}

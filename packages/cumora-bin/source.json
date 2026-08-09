@@ -1,0 +1,13 @@
+{
+  "sources": {
+    "x86_64-linux": {
+      "md5": "6832d6c6a7eba899c17450137e429a63",
+      "url": "https://updates.cumora.ai/cumora_0.1.64_amd64.deb"
+    }
+  },
+  "update": {
+    "method": "yaml",
+    "url": "https://updates.cumora.ai/latest.yml"
+  },
+  "version": "0.1.64"
+}

@@ -1,0 +1,13 @@
+{
+  "sources": {
+    "x86_64-linux": {
+      "sha256": "7c034371b7ebd9abaa59040e0885079144e3fb589899afb3915f12ab33df5218",
+      "url": "https://github.com/t8y2/dbx/releases/download/v0.5.71/dbx_0.5.71_amd64.deb"
+    }
+  },
+  "update": {
+    "method": "github",
+    "repo": "t8y2/dbx"
+  },
+  "version": "0.5.71"
+}

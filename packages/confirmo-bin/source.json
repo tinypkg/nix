@@ -1,0 +1,13 @@
+{
+  "sources": {
+    "x86_64-linux": {
+      "md5": "15f86604f587fd09696a4fab041b58d9",
+      "url": "https://updates.confirmo.love/confirmo_1.0.96_amd64.deb"
+    }
+  },
+  "update": {
+    "method": "yaml",
+    "url": "https://updates.confirmo.love/latest.yml"
+  },
+  "version": "1.0.96"
+}

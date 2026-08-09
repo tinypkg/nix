@@ -1,0 +1,17 @@
+{
+  "sources": {
+    "aarch64-linux": {
+      "sha256": "08aee7675fa61f413c982dbc8853fa754897812f8735d97335c9aa6f5449ac17",
+      "url": "https://github.com/tuchg/Lucarne/releases/download/v0.5.1/lucarned-v0.5.1-aarch64-unknown-linux-gnu.tar.xz"
+    },
+    "x86_64-linux": {
+      "sha256": "209c0212ca5ec9b8bd7a89f25ce942f5f1c7fe43a690a2c297c6b5ed0eb65905",
+      "url": "https://github.com/tuchg/Lucarne/releases/download/v0.5.1/lucarned-v0.5.1-x86_64-unknown-linux-gnu.tar.xz"
+    }
+  },
+  "update": {
+    "method": "github",
+    "repo": "tuchg/Lucarne"
+  },
+  "version": "0.5.1"
+}

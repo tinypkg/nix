@@ -1,0 +1,18 @@
+{
+  "sources": {
+    "aarch64-linux": {
+      "fileName": "vhclient",
+      "sha256": "e8e37e479dd1bf22ab6b7df3662c54d13f8a8ce23c3250b09a4fa75344dac6a6",
+      "url": "https://www.virtualhere.com/sites/default/files/usbclient/vhuitarm64"
+    },
+    "x86_64-linux": {
+      "fileName": "vhclient",
+      "sha256": "fd132c8e400900996033cbd9c70276a4291985eb40ca687c7c33ca57e0b5e624",
+      "url": "https://www.virtualhere.com/sites/default/files/usbclient/vhclientx86_64"
+    }
+  },
+  "update": {
+    "method": "manual"
+  },
+  "version": "5.9.9"
+}
