@@ -47,6 +47,7 @@
       perSystem =
         { system, ... }:
         let
+          toolingEnabled = builtins.elem system (import systems);
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
@@ -99,48 +100,52 @@
         {
           packages = packageSet;
 
-          checks.repository = pkgs.runCommand "tinypkg-repository-check" { } ''
-            ${repositoryCheck}/bin/tinypkg-repository-check ${self}
-            touch $out
-          '';
-
-          devshells.default = {
-            name = "tinypkg-nix";
-            motd = ''
-              {bold}{14}Entering the tinypkg Nix package shell{reset}
-              Run {bold}menu{reset} to list available commands.
+          checks = pkgs.lib.optionalAttrs toolingEnabled {
+            repository = pkgs.runCommand "tinypkg-repository-check" { } ''
+              ${repositoryCheck}/bin/tinypkg-repository-check ${self}
+              touch $out
             '';
-            packages = [
-              pkgs.curl
-              pkgs.git
-              pkgs.jq
-            ];
-            commands = [
-              # ci
-              {
-                category = "ci";
-                name = "flake-check";
-                help = "Evaluate all flake checks";
-                command = "nix flake check --all-systems";
-              }
-              {
-                category = "ci";
-                name = "repository-check";
-                help = "Validate package metadata and documentation";
-                command = "./scripts/check.sh";
-              }
-
-              # maintenance
-              {
-                category = "maintenance";
-                name = "sources-update";
-                help = "Update package versions and hashes from upstream";
-                command = "./scripts/update-sources.sh \"$@\"";
-              }
-            ];
           };
 
-          treefmt = {
+          devshells = pkgs.lib.optionalAttrs toolingEnabled {
+            default = {
+              name = "tinypkg-nix";
+              motd = ''
+                {bold}{14}Entering the tinypkg Nix package shell{reset}
+                Run {bold}menu{reset} to list available commands.
+              '';
+              packages = [
+                pkgs.curl
+                pkgs.git
+                pkgs.jq
+              ];
+              commands = [
+                # ci
+                {
+                  category = "ci";
+                  name = "flake-check";
+                  help = "Evaluate all flake checks";
+                  command = "nix flake check --all-systems";
+                }
+                {
+                  category = "ci";
+                  name = "repository-check";
+                  help = "Validate package metadata and documentation";
+                  command = "./scripts/check.sh";
+                }
+
+                # maintenance
+                {
+                  category = "maintenance";
+                  name = "sources-update";
+                  help = "Update package versions and hashes from upstream";
+                  command = "./scripts/update-sources.sh \"$@\"";
+                }
+              ];
+            };
+          };
+
+          treefmt = pkgs.lib.mkIf toolingEnabled {
             projectRootFile = "flake.nix";
             programs.nixfmt.enable = true;
             programs.shfmt.enable = true;
