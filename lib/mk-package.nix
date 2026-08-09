@@ -135,6 +135,7 @@ let
   normalPackage = pkgs.stdenvNoCC.mkDerivation {
     pname = name;
     inherit version src;
+    sourceRoot = lib.optionalString (kind == "archive") ".";
 
     nativeBuildInputs = [
       pkgs.autoPatchelfHook
