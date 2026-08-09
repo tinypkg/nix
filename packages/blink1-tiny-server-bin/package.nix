@@ -4,5 +4,9 @@
   license = "custom";
   kind = "archive";
   executables = [ "blink1-tiny-server" ];
-  runtimeDependencies = [ "libusb1" ];
+  runtimeDependencies = [
+    "libusb1"
+    "libudev-zero"
+  ];
+  ignoreMissingDependencies = [ "libudev.so.1" ];
 }

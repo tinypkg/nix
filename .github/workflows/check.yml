@@ -27,3 +27,5 @@ jobs:
         run: nix flake check --all-systems --no-build
       - name: Build representative prebuilt packages
         run: nix build --no-link .#autocli-bin .#blink1-tool-bin .#revpdf-bin
+      - name: Smoke test patched executable
+        run: nix run .#blink1-tool-bin -- --version

@@ -8,4 +8,5 @@
     "libusb1"
     "libudev-zero"
   ];
+  ignoreMissingDependencies = [ "libudev.so.1" ];
 }
