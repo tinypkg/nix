@@ -45,46 +45,46 @@ write_summary() {
 }
 
 case "$mode" in
-  evaluate)
-    if ! package_matrix=$(
-      nix eval --json .#packages \
-        --apply 'systems: builtins.mapAttrs (_: packages: builtins.attrNames packages) systems'
-    ); then
-      echo "unable to enumerate flake package outputs" >&2
-      exit 1
+evaluate)
+  if ! package_matrix=$(
+    nix eval --json .#packages \
+      --apply 'systems: builtins.mapAttrs (_: packages: builtins.attrNames packages) systems'
+  ); then
+    echo "unable to enumerate flake package outputs" >&2
+    exit 1
+  fi
+
+  while IFS=$'\t' read -r system package; do
+    item="$system#$package"
+    if nix eval --raw ".#packages.\"$system\".\"$package\".drvPath" >/dev/null; then
+      ((passed += 1))
+    else
+      warn_and_skip "$item"
     fi
+  done < <(jq -r 'to_entries[] | .key as $system | .value[] | [$system, .] | @tsv' <<<"$package_matrix")
 
-    while IFS=$'\t' read -r system package; do
-      item="$system#$package"
-      if nix eval --raw ".#packages.\"$system\".\"$package\".drvPath" >/dev/null; then
-        ((passed += 1))
-      else
-        warn_and_skip "$item"
-      fi
-    done < <(jq -r 'to_entries[] | .key as $system | .value[] | [$system, .] | @tsv' <<<"$package_matrix")
-
-    write_summary "Package evaluation"
-    ;;
-  build)
-    if (($# == 0)); then
-      echo "build mode requires at least one package" >&2
-      exit 2
-    fi
-
-    for package in "$@"; do
-      if nix build --no-link ".#$package"; then
-        ((passed += 1))
-      else
-        warn_and_skip "$package"
-      fi
-    done
-
-    write_summary "Representative package builds"
-    ;;
-  *)
-    echo "unknown mode: $mode" >&2
+  write_summary "Package evaluation"
+  ;;
+build)
+  if (($# == 0)); then
+    echo "build mode requires at least one package" >&2
     exit 2
-    ;;
+  fi
+
+  for package in "$@"; do
+    if nix build --no-link ".#$package"; then
+      ((passed += 1))
+    else
+      warn_and_skip "$package"
+    fi
+  done
+
+  write_summary "Representative package builds"
+  ;;
+*)
+  echo "unknown mode: $mode" >&2
+  exit 2
+  ;;
 esac
 
 exit 0
