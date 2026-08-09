@@ -1,0 +1,57 @@
+name: Update packages
+
+on:
+  schedule:
+    - cron: "17 */12 * * *"
+  workflow_dispatch:
+    inputs:
+      package:
+        description: "Update only this package (leave empty for all packages)"
+        required: false
+        type: string
+      version:
+        description: "Override the detected version (requires package)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: package-updates
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update directly from upstream sources
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./scripts/update-sources.sh "${{ inputs.package }}" "${{ inputs.version }}"
+      - name: Update nixpkgs lock
+        run: nix flake update
+      - name: Run structural checks
+        run: nix develop --command ./scripts/check.sh
+      - name: Evaluate package set
+        run: nix flake check --all-systems --no-build
+      - name: Build representative prebuilt packages
+        run: nix build --no-link .#autocli-bin .#blink1-tool-bin .#revpdf-bin
+      - name: Create update pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/package-updates
+          delete-branch: true
+          title: "chore: update package sources"
+          commit-message: "chore: update package sources"
+          body: |
+            Automated update of package versions, fixed hashes, and the nixpkgs lock.
+
+            The workflow evaluated all exported packages and built representative
+            archive, native-library, and AppImage packages before opening this PR.
+          labels: dependencies

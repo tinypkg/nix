@@ -1,0 +1,29 @@
+name: Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create lock file when bootstrapping
+        run: nix flake lock
+      - name: Structural checks
+        run: nix develop --command ./scripts/check.sh
+      - name: Check formatting
+        run: nix fmt -- --check .
+      - name: Evaluate every supported system
+        run: nix flake check --all-systems --no-build
+      - name: Build representative prebuilt packages
+        run: nix build --no-link .#autocli-bin .#blink1-tool-bin .#revpdf-bin

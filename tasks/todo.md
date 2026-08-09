@@ -1,0 +1,22 @@
+# Tasks
+
+- [ ] Inventory all AUR packages and source artifacts.
+  - Acceptance: 40 package definitions are accounted for.
+  - Verify: compare exported names with `../aur/*/PKGBUILD`.
+  - Files: `packages/`, `tests/expected-packages.txt`
+- [ ] Implement shared binary builders and flake outputs.
+  - Acceptance: all package attributes evaluate on supported systems.
+  - Verify: `nix flake show` and `nix flake check`.
+  - Files: `flake.nix`, `lib/`, `packages/`
+- [ ] Add tests and CI.
+  - Acceptance: formatting, structure, evaluation, and representative builds run in CI.
+  - Verify: `nix develop --command ./scripts/check.sh`.
+  - Files: `scripts/`, `tests/`, `.github/workflows/`
+- [ ] Write complete installation documentation.
+  - Acceptance: all packages and both Nix and AUR workflows are documented.
+  - Verify: README package names match the expected package list.
+  - Files: `README.md`
+- [ ] Publish the repository.
+  - Acceptance: the verified commit exists on public `tinypkg/nix`.
+  - Verify: `gh repo view tinypkg/nix` and compare local/remote HEAD.
+  - Files: Git and GitHub repository metadata
