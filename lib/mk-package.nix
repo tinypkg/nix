@@ -53,17 +53,17 @@ let
       "pango"
       "systemd"
       "webkitgtk_4_1"
-      "xorg.libX11"
-      "xorg.libXcomposite"
-      "xorg.libXdamage"
-      "xorg.libXext"
-      "xorg.libXfixes"
-      "xorg.libXi"
-      "xorg.libXrandr"
-      "xorg.libXrender"
-      "xorg.libXScrnSaver"
-      "xorg.libXtst"
-      "xorg.libxcb"
+      "libx11"
+      "libxcomposite"
+      "libxdamage"
+      "libxext"
+      "libxfixes"
+      "libxi"
+      "libxrandr"
+      "libxrender"
+      "libxscrnsaver"
+      "libxtst"
+      "libxcb"
     ]
   );
 
@@ -76,7 +76,6 @@ let
       }
       // lib.optionalAttrs (artifact ? hash) { inherit (artifact) hash; }
       // lib.optionalAttrs (artifact ? sha256) { inherit (artifact) sha256; }
-      // lib.optionalAttrs (artifact ? md5) { inherit (artifact) md5; }
     );
 in
 spec:

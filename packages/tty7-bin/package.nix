@@ -13,7 +13,7 @@
     "libxkbcommon"
     "vulkan-loader"
     "wayland"
-    "xorg.libX11"
-    "xorg.libxcb"
+    "libx11"
+    "libxcb"
   ];
 }

@@ -7,6 +7,6 @@
   copyDirectories = [ "share" ];
   runtimeDependencies = [
     "libxkbcommon"
-    "xorg.libxcb"
+    "libxcb"
   ];
 }

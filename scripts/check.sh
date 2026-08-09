@@ -39,7 +39,7 @@ while IFS= read -r package; do
     any(
       .sources[];
       (.url | startswith("https://") | not)
-      or ((.hash // .sha256 // .md5 // "") | test("^(SKIP)?$"))
+      or ((.hash // .sha256 // "") | test("^(SKIP)?$"))
     )
   ' "$source_file" >/dev/null; then
     echo "$package has a non-HTTPS source or missing fixed hash" >&2

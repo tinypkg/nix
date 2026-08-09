@@ -9,6 +9,6 @@
   ];
   runtimeDependencies = [
     "libxkbcommon"
-    "xorg.libxcb"
+    "libxcb"
   ];
 }

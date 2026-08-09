@@ -1,7 +1,7 @@
 {
   "sources": {
     "x86_64-linux": {
-      "md5": "aa6dea6ad02976c9a0bc8bf6443e6896",
+      "hash": "md5-qm3qatApdsmgvIv2RD5olg==",
       "url": "https://github.com/Open-Less/openless/releases/download/v1.3.14-tauri/OpenLess_1.3.14_amd64.deb"
     }
   },
