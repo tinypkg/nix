@@ -4,5 +4,8 @@
   license = "custom";
   kind = "archive";
   executables = [ "blink1-tool" ];
-  runtimeDependencies = [ "libusb1" ];
+  runtimeDependencies = [
+    "libusb1"
+    "systemd"
+  ];
 }
