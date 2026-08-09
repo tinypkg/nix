@@ -6,6 +6,6 @@
   executables = [ "blink1-tool" ];
   runtimeDependencies = [
     "libusb1"
-    "systemd"
+    "systemdLibs"
   ];
 }
