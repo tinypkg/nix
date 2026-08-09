@@ -52,9 +52,9 @@
             config.allowUnfree = true;
           };
           packageDirectoryEntries = builtins.readDir ./packages;
-          packageNames = builtins.filter (
-            name: packageDirectoryEntries.${name} == "directory"
-          ) (builtins.attrNames packageDirectoryEntries);
+          packageNames = builtins.filter (name: packageDirectoryEntries.${name} == "directory") (
+            builtins.attrNames packageDirectoryEntries
+          );
           packageSpecs = builtins.listToAttrs (
             map (
               name:
@@ -65,9 +65,7 @@
                 inherit name;
                 value = (import (packageDirectory + "/package.nix")) // {
                   inherit packageDirectory;
-                  sourceInfo = builtins.fromJSON (
-                    builtins.readFile (packageDirectory + "/source.json")
-                  );
+                  sourceInfo = builtins.fromJSON (builtins.readFile (packageDirectory + "/source.json"));
                 };
               }
             ) packageNames
@@ -79,7 +77,9 @@
           packageSet = pkgs.lib.mapAttrs (
             name: spec:
             let
-              completeSpec = spec // { inherit name; };
+              completeSpec = spec // {
+                inherit name;
+              };
               genericPackage = mkPackage completeSpec;
               customBuilder = spec.packageDirectory + "/build.nix";
             in
