@@ -13,7 +13,7 @@ jobs:
   evaluate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
@@ -22,7 +22,7 @@ jobs:
       - name: Structural checks
         run: nix develop --command ./scripts/check.sh
       - name: Check formatting
-        run: nix fmt -- --check .
+        run: nix fmt -- --ci .
       - name: Evaluate every supported system
         run: nix flake check --all-systems --no-build
       - name: Build representative prebuilt packages
