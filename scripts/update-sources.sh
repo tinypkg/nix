@@ -7,13 +7,13 @@ updates_file="$repo_root/packages/update.json"
 package_filter=${1:-}
 version_override=${2:-}
 
-if [[ -n "$version_override" && -z "$package_filter" ]]; then
+if [[ -n $version_override && -z $package_filter ]]; then
   echo "a version override requires a package name" >&2
   exit 2
 fi
 
 github_headers=(-H "Accept: application/vnd.github+json")
-if [[ -n "${GH_TOKEN:-}" ]]; then
+if [[ -n ${GH_TOKEN:-} ]]; then
   github_headers+=(-H "Authorization: Bearer $GH_TOKEN")
 fi
 
@@ -23,52 +23,52 @@ latest_version() {
   method=$(jq -r --arg package "$package" '.[$package].method' "$updates_file")
 
   case "$method" in
-    github)
-      local repo tag suffix
-      repo=$(jq -r --arg package "$package" '.[$package].repo' "$updates_file")
-      tag=$(curl --fail --silent --show-error --location "${github_headers[@]}" \
-        "https://api.github.com/repos/$repo/releases/latest" | jq -er '.tag_name')
-      tag=${tag#v}
-      suffix=$(jq -r --arg package "$package" '.[$package].stripSuffix // ""' "$updates_file")
-      if [[ -n "$suffix" ]]; then tag=${tag%"$suffix"}; fi
-      printf '%s\n' "$tag"
-      ;;
-    pypi)
-      local project
-      project=$(jq -r --arg package "$package" '.[$package].project' "$updates_file")
-      curl --fail --silent --show-error --location \
-        "https://pypi.org/pypi/$project/json" | jq -er '.info.version'
-      ;;
-    yaml)
-      local url
-      url=$(jq -r --arg package "$package" '.[$package].url' "$updates_file")
-      curl --fail --silent --show-error --location "$url" \
-        | sed -nE 's/^version:[[:space:]]*["'\'']?([^"'\'']+)["'\'']?[[:space:]]*$/\1/p' \
-        | head -n1
-      ;;
-    json)
-      local url selector
-      url=$(jq -r --arg package "$package" '.[$package].url' "$updates_file")
-      selector=$(jq -r --arg package "$package" '.[$package].selector' "$updates_file")
-      curl --fail --silent --show-error --location "$url" | jq -er "$selector" | sed 's/^v//'
-      ;;
-    html)
-      local url regex
-      url=$(jq -r --arg package "$package" '.[$package].url' "$updates_file")
-      regex=$(jq -r --arg package "$package" '.[$package].versionRegex' "$updates_file")
-      curl --fail --silent --show-error --location "$url" \
-        | grep -oE "$regex" \
-        | sed -E 's#^/releases/|/$##g' \
-        | sort -Vu \
-        | tail -n1
-      ;;
-    manual)
-      return 3
-      ;;
-    *)
-      echo "unknown update method '$method' for $package" >&2
-      return 2
-      ;;
+  github)
+    local repo tag suffix
+    repo=$(jq -r --arg package "$package" '.[$package].repo' "$updates_file")
+    tag=$(curl --fail --silent --show-error --location "${github_headers[@]}" \
+      "https://api.github.com/repos/$repo/releases/latest" | jq -er '.tag_name')
+    tag=${tag#v}
+    suffix=$(jq -r --arg package "$package" '.[$package].stripSuffix // ""' "$updates_file")
+    if [[ -n $suffix ]]; then tag=${tag%"$suffix"}; fi
+    printf '%s\n' "$tag"
+    ;;
+  pypi)
+    local project
+    project=$(jq -r --arg package "$package" '.[$package].project' "$updates_file")
+    curl --fail --silent --show-error --location \
+      "https://pypi.org/pypi/$project/json" | jq -er '.info.version'
+    ;;
+  yaml)
+    local url
+    url=$(jq -r --arg package "$package" '.[$package].url' "$updates_file")
+    curl --fail --silent --show-error --location "$url" |
+      sed -nE 's/^version:[[:space:]]*["'\'']?([^"'\'']+)["'\'']?[[:space:]]*$/\1/p' |
+      head -n1
+    ;;
+  json)
+    local url selector
+    url=$(jq -r --arg package "$package" '.[$package].url' "$updates_file")
+    selector=$(jq -r --arg package "$package" '.[$package].selector' "$updates_file")
+    curl --fail --silent --show-error --location "$url" | jq -er "$selector" | sed 's/^v//'
+    ;;
+  html)
+    local url regex
+    url=$(jq -r --arg package "$package" '.[$package].url' "$updates_file")
+    regex=$(jq -r --arg package "$package" '.[$package].versionRegex' "$updates_file")
+    curl --fail --silent --show-error --location "$url" |
+      grep -oE "$regex" |
+      sed -E 's#^/releases/|/$##g' |
+      sort -Vu |
+      tail -n1
+    ;;
+  manual)
+    return 3
+    ;;
+  *)
+    echo "unknown update method '$method' for $package" >&2
+    return 2
+    ;;
   esac
 }
 
@@ -77,7 +77,7 @@ update_package() {
   local current latest transform old_url_version new_url_version
   current=$(jq -r --arg package "$package" '.[$package].version' "$sources_file")
 
-  if [[ -n "$version_override" ]]; then
+  if [[ -n $version_override ]]; then
     latest=$version_override
   elif latest=$(latest_version "$package"); then
     :
@@ -91,11 +91,11 @@ update_package() {
     return "$status"
   fi
 
-  if [[ -z "$latest" || "$latest" == "null" ]]; then
+  if [[ -z $latest || $latest == "null" ]]; then
     echo "$package: upstream returned an empty version" >&2
     return 1
   fi
-  if [[ "$latest" == "$current" && -z "$version_override" ]]; then
+  if [[ $latest == "$current" && -z $version_override ]]; then
     echo "$package: already at $current"
     return 0
   fi
@@ -103,7 +103,7 @@ update_package() {
   transform=$(jq -r --arg package "$package" '.[$package].urlVersionTransform // "identity"' "$updates_file")
   old_url_version=$current
   new_url_version=$latest
-  if [[ "$transform" == "dot-beta" ]]; then
+  if [[ $transform == "dot-beta" ]]; then
     old_url_version=${old_url_version/.beta./-beta.}
     new_url_version=${new_url_version/.beta./-beta.}
   fi
@@ -117,7 +117,7 @@ update_package() {
 
     replace_from=$(jq -r --arg package "$package" '.[$package].urlReplaceFrom // ""' "$updates_file")
     replace_to=$(jq -r --arg package "$package" '.[$package].urlReplaceTo // ""' "$updates_file")
-    if [[ -n "$replace_from" ]]; then new_url=${new_url//"$replace_from"/"$replace_to"}; fi
+    if [[ -n $replace_from ]]; then new_url=${new_url//"$replace_from"/"$replace_to"}; fi
 
     prefetch=$(nix store prefetch-file --json "$new_url")
     hash=$(jq -er '.hash' <<<"$prefetch")
@@ -135,7 +135,7 @@ update_package() {
   done < <(jq -r --arg package "$package" '.[$package].sources | keys[]' "$sources_file")
 }
 
-if [[ -n "$package_filter" ]]; then
+if [[ -n $package_filter ]]; then
   if ! jq -e --arg package "$package_filter" 'has($package)' "$updates_file" >/dev/null; then
     echo "unknown package: $package_filter" >&2
     exit 2

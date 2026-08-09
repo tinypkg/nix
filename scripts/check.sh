@@ -12,8 +12,8 @@ jq -r 'keys[]' packages/sources.json >"$tmp_dir/sources"
 jq -e . packages/update.json >/dev/null
 jq -r 'keys[]' packages/update.json >"$tmp_dir/updates"
 
-sed -nE 's/^  ([a-z0-9-]+) = \{$/\1/p' packages/metadata.nix \
-  | sort >"$tmp_dir/metadata"
+sed -nE 's/^  ([a-z0-9-]+) = \{$/\1/p' packages/metadata.nix |
+  sort >"$tmp_dir/metadata"
 
 for list in "$tmp_dir/sources" "$tmp_dir/metadata" "$tmp_dir/updates" tests/expected-packages.txt; do
   if ! diff -u tests/expected-packages.txt "$list"; then

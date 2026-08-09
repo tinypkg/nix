@@ -67,7 +67,8 @@ let
     ]
   );
 
-  fetchArtifact = name: artifact:
+  fetchArtifact =
+    name: artifact:
     pkgs.fetchurl (
       {
         inherit (artifact) url;
@@ -88,12 +89,14 @@ let
   executableNames = spec.executables or [ (lib.removeSuffix "-bin" name) ];
   firstExecutable = builtins.head executableNames;
   mainProgram =
-    spec.mainProgram or (
-      if builtins.isString firstExecutable then firstExecutable else firstExecutable.name
-    );
+    spec.mainProgram
+      or (if builtins.isString firstExecutable then firstExecutable else firstExecutable.name);
   runtimeDependencies = lib.filter (dependency: dependency != null) (
     [ pkgs.stdenv.cc.cc.lib ]
-    ++ lib.optionals (builtins.elem kind [ "deb" "appimage" ]) commonDesktopDependencies
+    ++ lib.optionals (builtins.elem kind [
+      "deb"
+      "appimage"
+    ]) commonDesktopDependencies
     ++ map resolvePackage (spec.runtimeDependencies or [ ])
   );
   meta = {
