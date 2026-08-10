@@ -1,12 +1,12 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-WgpvyegeRJTLdEoLPKS/mVe6lNj7gUp03e9hiL+KKtA=",
-      "url": "https://cdn-zcode.z.ai/zcode/electron/releases/3.6.5/linux-arm64/ZCode-3.6.5-linux-arm64.deb"
+      "hash": "sha256-yKFl8tqxoewcA6khKUdOZ3U1B8uHPLFwcSMaU/Iup60=",
+      "url": "https://cdn-zcode.z.ai/zcode/electron/releases/3.7.5/linux-arm64/ZCode-3.7.5-linux-arm64.deb"
     },
     "x86_64-linux": {
-      "hash": "sha256-5JgDzYxGzcCy7WHiet39H6fMFy/x7ht66yqOtdhFMgQ=",
-      "url": "https://cdn-zcode.z.ai/zcode/electron/releases/3.6.5/linux-x64/ZCode-3.6.5-linux-x64.deb"
+      "hash": "sha256-06enoHqFEtAcLUskJkSuZzAoA49hRWeoVLlAu9+NpD4=",
+      "url": "https://cdn-zcode.z.ai/zcode/electron/releases/3.7.5/linux-x64/ZCode-3.7.5-linux-x64.deb"
     }
   },
   "update": {
@@ -14,5 +14,5 @@
     "url": "https://zcode.z.ai/en",
     "versionRegex": "/releases/[0-9]+\\.[0-9]+\\.[0-9]+/"
   },
-  "version": "3.6.5"
+  "version": "3.7.5"
 }

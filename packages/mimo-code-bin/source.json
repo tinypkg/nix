@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-x6CzF1rnIx6CoeKqz7gRN8hOysvLAOqalgpyCPP97Ps=",
-      "url": "https://github.com/XiaomiMiMo/MiMo-Code/releases/download/v0.1.10/mimocode-linux-arm64.tar.gz"
+      "hash": "sha256-ARX6hsAOyUbBvvLrzVkf1pseU5sN1m1qPnamhji93QA=",
+      "url": "https://github.com/XiaomiMiMo/MiMo-Code/releases/download/v0.1.11/mimocode-linux-arm64.tar.gz"
     },
     "x86_64-linux": {
-      "hash": "sha256-+PvdazNSyM6gLWLz3XEa2gSe5NgWAZPqdyXPp2xRAJs=",
-      "url": "https://github.com/XiaomiMiMo/MiMo-Code/releases/download/v0.1.10/mimocode-linux-x64.tar.gz"
+      "hash": "sha256-HIU/g7W128fv3lihHGqrhNubLFv4JwBxmqG3GJza5MQ=",
+      "url": "https://github.com/XiaomiMiMo/MiMo-Code/releases/download/v0.1.11/mimocode-linux-x64.tar.gz"
     }
   },
   "update": {
     "method": "github",
     "repo": "XiaomiMiMo/MiMo-Code"
   },
-  "version": "0.1.10"
+  "version": "0.1.11"
 }
