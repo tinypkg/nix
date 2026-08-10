@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "sha256": "b733f613b32bbb37af3fedd4703c3431da12d346e94bc55af791b134545ebd07",
-      "url": "https://github.com/SaladDay/cc-switch-cli/releases/download/v5.9.3/cc-switch-cli-linux-arm64-musl.tar.gz"
+      "hash": "sha256-ECd/nnqnYSWrQDXgisFaUrxD0sSF9ne1/+wgVUNtWeU=",
+      "url": "https://github.com/SaladDay/cc-switch-cli/releases/download/v5.10.1/cc-switch-cli-linux-arm64-musl.tar.gz"
     },
     "x86_64-linux": {
-      "sha256": "a581ec26efda795182949243665ea725d42029c58bb4b9137d0708b255a4fb91",
-      "url": "https://github.com/SaladDay/cc-switch-cli/releases/download/v5.9.3/cc-switch-cli-linux-x64-musl.tar.gz"
+      "hash": "sha256-vmg260LPZ0ezgwsV2HkC/GoTMcNSY6p1kO0KN6RDB5A=",
+      "url": "https://github.com/SaladDay/cc-switch-cli/releases/download/v5.10.1/cc-switch-cli-linux-x64-musl.tar.gz"
     }
   },
   "update": {
     "method": "github",
     "repo": "SaladDay/cc-switch-cli"
   },
-  "version": "5.9.3"
+  "version": "5.10.1"
 }

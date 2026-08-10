@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "md5-PWHttDZwnEN+wYcwpF0xEA==",
-      "url": "https://github.com/farion1231/cc-switch/releases/download/v3.19.1/CC-Switch-v3.19.1-Linux-arm64.deb"
+      "hash": "sha256-1UYHxAjKQwpifQ31Lz8QpBtV3ypCDcMSvinthKAxqaM=",
+      "url": "https://github.com/farion1231/cc-switch/releases/download/v3.19.2/CC-Switch-v3.19.2-Linux-arm64.deb"
     },
     "x86_64-linux": {
-      "hash": "md5-m02gGw10b46COUwD+IcjMg==",
-      "url": "https://github.com/farion1231/cc-switch/releases/download/v3.19.1/CC-Switch-v3.19.1-Linux-x86_64.deb"
+      "hash": "sha256-5TDzWxKePeNNqkvpoG5YdkLljQpodPdVkT000BQmd/I=",
+      "url": "https://github.com/farion1231/cc-switch/releases/download/v3.19.2/CC-Switch-v3.19.2-Linux-x86_64.deb"
     }
   },
   "update": {
     "method": "github",
     "repo": "farion1231/cc-switch"
   },
-  "version": "3.19.1"
+  "version": "3.19.2"
 }
