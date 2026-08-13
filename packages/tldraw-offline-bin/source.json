@@ -2,17 +2,17 @@
   "sources": {
     "aarch64-linux": {
       "fileName": "tldraw-offline.AppImage",
-      "hash": "sha256-bLqoRkznzC00sYVotqzdG03eVnmNJSHZPXJW/Zs8yyA=",
-      "url": "https://github.com/tldraw/tldraw-offline/releases/download/v1.13.0/tldraw-offline-linux-arm64.AppImage"
+      "hash": "sha256-Sgji8TadnqS4ykmgDG9TGRduN2QKjuCJhOGkXRZrmNE=",
+      "url": "https://github.com/tldraw/tldraw-offline/releases/download/v1.13.1/tldraw-offline-linux-arm64.AppImage"
     },
     "x86_64-linux": {
-      "hash": "sha256-t7pa1yG7JPnMYnF6gU9CADzlU13cMG099aJ5vijvVPM=",
-      "url": "https://github.com/tldraw/tldraw-offline/releases/download/v1.13.0/tldraw-offline-linux-amd64.deb"
+      "hash": "sha256-0wcEKwP165LTixfUivTKnsWGESVhBI3bjqJ9GcplNyQ=",
+      "url": "https://github.com/tldraw/tldraw-offline/releases/download/v1.13.1/tldraw-offline-linux-amd64.deb"
     }
   },
   "update": {
     "method": "github",
     "repo": "tldraw/tldraw-offline"
   },
-  "version": "1.13.0"
+  "version": "1.13.1"
 }
