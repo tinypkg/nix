@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "sha256": "a29de7143624a1e44794a3f3c5a8552c17b3635e9f6236d7dfd81ba4c3ecc9d2",
-      "url": "https://github.com/manyougz/velotype/releases/download/v0.7.0/velotype-v0.7.0-linux-aarch64.tar.gz"
+      "hash": "sha256-mz6q+OR7PsCdiEttCECiXOdoNwrxReKOi2gmO3yJ3kE=",
+      "url": "https://github.com/manyougz/velotype/releases/download/v0.7.2/velotype-v0.7.2-linux-aarch64.tar.gz"
     },
     "x86_64-linux": {
-      "sha256": "30828278b26557c384f5f6f42bcf64e3979d1ce21ed3bf36d32367e717cced23",
-      "url": "https://github.com/manyougz/velotype/releases/download/v0.7.0/velotype-v0.7.0-linux-x86_64.tar.gz"
+      "hash": "sha256-wZA/lxWO3rhdo8AqyKocsMukGD0g2RabsiN/je/VXXM=",
+      "url": "https://github.com/manyougz/velotype/releases/download/v0.7.2/velotype-v0.7.2-linux-x86_64.tar.gz"
     }
   },
   "update": {
     "method": "github",
     "repo": "manyougz/velotype"
   },
-  "version": "0.7.0"
+  "version": "0.7.2"
 }
