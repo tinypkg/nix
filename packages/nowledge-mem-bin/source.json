@@ -1,13 +1,13 @@
 {
   "sources": {
     "x86_64-linux": {
-      "hash": "sha256-saeffJJMos37h2NKfsbfrKy1rrKTmLngTaCain0+4Is=",
-      "url": "https://download-mem.nowledge.co/app/0.10.63/x86_64-unknown-linux-gnu.deb"
+      "hash": "sha256-x8xbRAczQCVYzYUN9aTKxlDmb17VUMRRue7OGS1Ygyo=",
+      "url": "https://download-mem.nowledge.co/app/0.10.64/x86_64-unknown-linux-gnu.deb"
     }
   },
   "update": {
     "method": "pypi",
     "project": "nmem-cli"
   },
-  "version": "0.10.63"
+  "version": "0.10.64"
 }
