@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-CDMvSAd7CltWo2zloqOrJjWjV2dC67iNNpsLJXb3Uwo=",
-      "url": "https://github.com/letstri/druk/releases/download/v1.20.4/druk-linux-arm64.tar.gz"
+      "hash": "sha256-JDrv1b9D6U46gm6QOlRJWR/bghx3hp/5WEALPDeOl3U=",
+      "url": "https://github.com/letstri/druk/releases/download/v1.20.6/druk-linux-arm64.tar.gz"
     },
     "x86_64-linux": {
-      "hash": "sha256-bm/COYgySFI0Etx7v8Y3msO9rAUUl12a7IG2cY4roco=",
-      "url": "https://github.com/letstri/druk/releases/download/v1.20.4/druk-linux-x64.tar.gz"
+      "hash": "sha256-hUx0RjnUzn66IrTBWlPRDVcvPYqozTaEGxZiOCF+j/0=",
+      "url": "https://github.com/letstri/druk/releases/download/v1.20.6/druk-linux-x64.tar.gz"
     }
   },
   "update": {
     "method": "github",
     "repo": "letstri/druk"
   },
-  "version": "1.20.4"
+  "version": "1.20.6"
 }
