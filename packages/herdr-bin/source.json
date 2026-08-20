@@ -2,13 +2,13 @@
   "sources": {
     "aarch64-linux": {
       "fileName": "herdr",
-      "hash": "sha256-9kesZkaNnvvGQv5TT7KERo8K6mBkFgb8AI38DYKjyoc=",
-      "url": "https://github.com/herdrdev/herdr/releases/download/v0.8.0/herdr-linux-aarch64"
+      "hash": "sha256-9VYQZY4cLg0qrvcwtLKriF9/i6AChas3K/sU8uPVtA0=",
+      "url": "https://github.com/herdrdev/herdr/releases/download/v0.8.2/herdr-linux-aarch64"
     },
     "x86_64-linux": {
       "fileName": "herdr",
-      "hash": "sha256-uHLqfkD6LLF+hXrJtisb8m23tAPGIvXS8/WzX26azSg=",
-      "url": "https://github.com/herdrdev/herdr/releases/download/v0.8.0/herdr-linux-x86_64"
+      "hash": "sha256-l2FQoU1JDJSyQ+ouGn6y37Z/EuNrGC25CTb2co5q7PQ=",
+      "url": "https://github.com/herdrdev/herdr/releases/download/v0.8.2/herdr-linux-x86_64"
     }
   },
   "update": {
@@ -17,5 +17,5 @@
     "urlReplaceFrom": "ogulcancelik/herdr",
     "urlReplaceTo": "herdrdev/herdr"
   },
-  "version": "0.8.0"
+  "version": "0.8.2"
 }

@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-fr3UZNtXLH9Xv4x36hY6PYtDHwzNvesU9+jGDgLGgOM=",
-      "url": "https://github.com/jdx/mise/releases/download/v2026.8.8/mise-v2026.8.8-linux-arm64-musl.tar.xz"
+      "hash": "sha256-UzTMt19fAWIVPfuzRA7MHhOF1lwHeLscsMcbMP94Ecs=",
+      "url": "https://github.com/jdx/mise/releases/download/v2026.8.9/mise-v2026.8.9-linux-arm64-musl.tar.xz"
     },
     "x86_64-linux": {
-      "hash": "sha256-IZWQHplAjrFDciq0YArUpwBEQuENc+ns12vOV4dXQ7k=",
-      "url": "https://github.com/jdx/mise/releases/download/v2026.8.8/mise-v2026.8.8-linux-x64-musl.tar.xz"
+      "hash": "sha256-1UnGf9iYqll9Bga7YaSPl6121lNKgLLnZ2N7SSL00sk=",
+      "url": "https://github.com/jdx/mise/releases/download/v2026.8.9/mise-v2026.8.9-linux-x64-musl.tar.xz"
     }
   },
   "update": {
     "method": "github",
     "repo": "jdx/mise"
   },
-  "version": "2026.8.8"
+  "version": "2026.8.9"
 }
