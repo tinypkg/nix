@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-3Ud7NtEM97Rv61pvjTb+9i8azeL4L1/t2/HBL/5ez+Y=",
-      "url": "https://github.com/ellipse-software/bast/releases/download/v0.10.1/bast_0.10.1_linux_arm64.tar.gz"
+      "hash": "sha256-JtgZM0v2N4bVtiQddJ86hfyUJLK/+3BuAw0dvWGUoMo=",
+      "url": "https://github.com/ellipse-software/bast/releases/download/v0.10.2/bast_0.10.2_linux_arm64.tar.gz"
     },
     "x86_64-linux": {
-      "hash": "sha256-QdgHV0i8d7ySEnzPX0zmJ3LU/MqTez+yanmHa2v2XNU=",
-      "url": "https://github.com/ellipse-software/bast/releases/download/v0.10.1/bast_0.10.1_linux_amd64.tar.gz"
+      "hash": "sha256-eI8dfcPMtAOP1ObKMzW0FmpNqgFcBAkziPTMXAjPyJQ=",
+      "url": "https://github.com/ellipse-software/bast/releases/download/v0.10.2/bast_0.10.2_linux_amd64.tar.gz"
     }
   },
   "update": {
     "method": "github",
     "repo": "ellipse-software/bast"
   },
-  "version": "0.10.1"
+  "version": "0.10.2"
 }
