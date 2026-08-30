@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-Sr+RwvLUOxXFmW+i7UMYNkJXJdOVnF0ycDdjW5YDv6Q=",
-      "url": "https://github.com/UniClipboard/UniClipboard/releases/download/v0.19.2/UniClipboard_0.19.2_arm64.deb"
+      "hash": "sha256-6khA57cSz9OjpCXwLR3ab6mdsrzd7oBwIoyvNL3hVcg=",
+      "url": "https://github.com/UniClipboard/UniClipboard/releases/download/v0.19.3/UniClipboard_0.19.3_arm64.deb"
     },
     "x86_64-linux": {
-      "hash": "sha256-eMGTFyCvTt+VkLzN7W1iBbz/8SXHD0SAkQtBaqfDRDs=",
-      "url": "https://github.com/UniClipboard/UniClipboard/releases/download/v0.19.2/UniClipboard_0.19.2_amd64.deb"
+      "hash": "sha256-e1nBSLqxSYkP+VkUsQRlNkZcetN6iJsh3mYY8nQtj9k=",
+      "url": "https://github.com/UniClipboard/UniClipboard/releases/download/v0.19.3/UniClipboard_0.19.3_amd64.deb"
     }
   },
   "update": {
     "method": "github",
     "repo": "UniClipboard/UniClipboard"
   },
-  "version": "0.19.2"
+  "version": "0.19.3"
 }
