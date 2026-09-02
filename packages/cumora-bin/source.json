@@ -1,13 +1,13 @@
 {
   "sources": {
     "x86_64-linux": {
-      "hash": "sha256-jFMfgeK84D+oTtwA1BJYiaYhQjwJ1dapMAbmenwO5Xc=",
-      "url": "https://updates.cumora.ai/cumora_0.12.1_amd64.deb"
+      "hash": "sha256-pzxSEU38n9xfO4jcCDi7RqJ110s7LgZZrof3Z84stFI=",
+      "url": "https://updates.cumora.ai/cumora_0.13.0_amd64.deb"
     }
   },
   "update": {
     "method": "yaml",
     "url": "https://updates.cumora.ai/latest.yml"
   },
-  "version": "0.12.1"
+  "version": "0.13.0"
 }
