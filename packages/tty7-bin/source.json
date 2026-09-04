@@ -1,13 +1,13 @@
 {
   "sources": {
     "x86_64-linux": {
-      "hash": "sha256-9RSsqHQBebLoSEWZ0oZUTgmXjxl6qHNFiBPUu3gDVXY=",
-      "url": "https://github.com/l0ng-ai/tty7/releases/download/v26.8.3/tty7-26.8.3-linux-x86_64.tar.gz"
+      "hash": "sha256-8VDdSo33vBAYWr+DZmo8c2bBrrZ3B6r3rIcwNeua990=",
+      "url": "https://github.com/l0ng-ai/tty7/releases/download/v26.9.0/tty7-26.9.0-linux-x86_64.tar.gz"
     }
   },
   "update": {
     "method": "github",
     "repo": "l0ng-ai/tty7"
   },
-  "version": "26.8.3"
+  "version": "26.9.0"
 }

@@ -1,13 +1,13 @@
 {
   "sources": {
     "x86_64-linux": {
-      "hash": "sha256-VbMN6YRbwiXT4UvJUGJ5uWpNsSqwJOVE9zb5xfxqddQ=",
-      "url": "https://github.com/t8y2/dbx/releases/download/v0.6.2/dbx_0.6.2_amd64.deb"
+      "hash": "sha256-gutSpUcGqWZPXuCnVHJvgVcqlzL5fHEc/ghvXQTk4BU=",
+      "url": "https://github.com/t8y2/dbx/releases/download/v0.6.4/dbx_0.6.4_amd64.deb"
     }
   },
   "update": {
     "method": "github",
     "repo": "t8y2/dbx"
   },
-  "version": "0.6.2"
+  "version": "0.6.4"
 }
