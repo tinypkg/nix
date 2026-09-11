@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-AuNIZbZXYEQD7G4hU2chFeXN2d4suqQY1LnEC/qLdok=",
-      "url": "https://github.com/farion1231/cc-switch/releases/download/v3.20.2/CC-Switch-v3.20.2-Linux-arm64.deb"
+      "hash": "sha256-x/Df6BCEOGYiMes0Pn4pytoc2orvPc0QxkC9AocZDRg=",
+      "url": "https://github.com/farion1231/cc-switch/releases/download/v3.20.3/CC-Switch-v3.20.3-Linux-arm64.deb"
     },
     "x86_64-linux": {
-      "hash": "sha256-7wJhvZ6E17ebA5P8xdvJFmSrG3cdIv0Qjbya2g97P8c=",
-      "url": "https://github.com/farion1231/cc-switch/releases/download/v3.20.2/CC-Switch-v3.20.2-Linux-x86_64.deb"
+      "hash": "sha256-Is/nXxIFVwVFtmxIK1Z+VPhZk8yLEEXAXGCXScQd1sU=",
+      "url": "https://github.com/farion1231/cc-switch/releases/download/v3.20.3/CC-Switch-v3.20.3-Linux-x86_64.deb"
     }
   },
   "update": {
     "method": "github",
     "repo": "farion1231/cc-switch"
   },
-  "version": "3.20.2"
+  "version": "3.20.3"
 }
