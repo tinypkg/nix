@@ -2,18 +2,18 @@
   "sources": {
     "aarch64-linux": {
       "fileName": "llmux",
-      "hash": "sha256-CJLnZnbO0Zukyyk2Tukh4+xeqvtWtf8HNoUKjuUyMks=",
-      "url": "https://github.com/2lab-ai/llmux/releases/download/v0.2.22/llmux-linux-aarch64"
+      "hash": "sha256-8TSV9okjjhR+xWF7JLlLPCfdWR6HuGPYhADQ3GMs/JQ=",
+      "url": "https://github.com/2lab-ai/llmux/releases/download/v0.2.23/llmux-linux-aarch64"
     },
     "x86_64-linux": {
       "fileName": "llmux",
-      "hash": "sha256-BWPgz/c7eXcU8PE+LHqzOvd1zTy5/5TO1k3BiJigFJU=",
-      "url": "https://github.com/2lab-ai/llmux/releases/download/v0.2.22/llmux-linux-x86_64"
+      "hash": "sha256-9TXG/92RkWCbxnkYV0pfvkVF70mGGr7AcyrHkMvMKPM=",
+      "url": "https://github.com/2lab-ai/llmux/releases/download/v0.2.23/llmux-linux-x86_64"
     }
   },
   "update": {
     "method": "github",
     "repo": "2lab-ai/llmux"
   },
-  "version": "0.2.22"
+  "version": "0.2.23"
 }
