@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-0hPT4Lj3Z+QMXyo2JjaqxDFN6oxYfHtAN7XOBEPlX/A=",
-      "url": "https://github.com/jdx/mise/releases/download/v2026.10.1/mise-v2026.10.1-linux-arm64-musl.tar.xz"
+      "hash": "sha256-MticwZepIBbHKFxPvfBnkZtECXt9pl/1cio7xVsc95M=",
+      "url": "https://github.com/jdx/mise/releases/download/v2026.10.2/mise-v2026.10.2-linux-arm64-musl.tar.xz"
     },
     "x86_64-linux": {
-      "hash": "sha256-EZ5NWjB0S9cY2u3MVxNzjChqzHcJNMOAsazCTJCkaOI=",
-      "url": "https://github.com/jdx/mise/releases/download/v2026.10.1/mise-v2026.10.1-linux-x64-musl.tar.xz"
+      "hash": "sha256-41QS6k6UT5WczPpYJtb4YKCEF6ANwCNXnKs1YcWnL6M=",
+      "url": "https://github.com/jdx/mise/releases/download/v2026.10.2/mise-v2026.10.2-linux-x64-musl.tar.xz"
     }
   },
   "update": {
     "method": "github",
     "repo": "jdx/mise"
   },
-  "version": "2026.10.1"
+  "version": "2026.10.2"
 }
