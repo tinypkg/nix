@@ -1,13 +1,13 @@
 {
   "sources": {
     "x86_64-linux": {
-      "hash": "sha256-NLBvmo4U6hOkN2Zt/4tH8XeTSrxN1M+I/OSQf7uKjG4=",
-      "url": "https://github.com/nkzw-tech/codiff/releases/download/v1.16.1/codiff_1.16.1_amd64.deb"
+      "hash": "sha256-QDlcb3jdPOwEG6r9WL71hYx/2GIxSJZ+tWE6sx7VxoY=",
+      "url": "https://github.com/nkzw-tech/codiff/releases/download/v1.16.2/codiff_1.16.2_amd64.deb"
     }
   },
   "update": {
     "method": "github",
     "repo": "nkzw-tech/codiff"
   },
-  "version": "1.16.1"
+  "version": "1.16.2"
 }

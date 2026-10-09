@@ -1,12 +1,12 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-aHTQsS+VIoQHRtgfOaABZIvmju06qAwTSKTjYMRO9xg=",
-      "url": "https://cdn-zcode.z.ai/zcode/electron/releases/3.14.4/linux-arm64/ZCode-3.14.4-linux-arm64.deb"
+      "hash": "sha256-JMV1W+RG1VXmwW4dvY0Jy2hIdkgOtXZNb270U9s/cpA=",
+      "url": "https://cdn-zcode.z.ai/zcode/electron/releases/3.14.5/linux-arm64/ZCode-3.14.5-linux-arm64.deb"
     },
     "x86_64-linux": {
-      "hash": "sha256-11NhiEXl4FfCnMvDkXwIpMjZk1Xe731qD00pFrpp5L4=",
-      "url": "https://cdn-zcode.z.ai/zcode/electron/releases/3.14.4/linux-x64/ZCode-3.14.4-linux-x64.deb"
+      "hash": "sha256-rBqNy6Zb2FAQ8Uih5cCEuh1Bspy6Fp+qJihAa8L8W88=",
+      "url": "https://cdn-zcode.z.ai/zcode/electron/releases/3.14.5/linux-x64/ZCode-3.14.5-linux-x64.deb"
     }
   },
   "update": {
@@ -14,5 +14,5 @@
     "url": "https://zcode.z.ai/en",
     "versionRegex": "/releases/[0-9]+\\.[0-9]+\\.[0-9]+/"
   },
-  "version": "3.14.4"
+  "version": "3.14.5"
 }
