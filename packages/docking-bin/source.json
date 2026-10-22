@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-XqnrHzleetoAUufUk3RtIWczugEIuoQfD/ObEN8jWlo=",
-      "url": "https://github.com/edumucelli/docking/releases/download/v2.24.0/docking-2.24.0-linux-aarch64.pkg.tar.xz"
+      "hash": "sha256-7ddPLs4F20XHfC2wA4FvrekrFKdb2RDBpKtyMoocF2w=",
+      "url": "https://github.com/edumucelli/docking/releases/download/v2.25.0/docking-2.25.0-linux-aarch64.pkg.tar.xz"
     },
     "x86_64-linux": {
-      "hash": "sha256-+Sc68ECv8L0w2ybQRzL6RR/hd/1dfW5vTf5Q70KGFV8=",
-      "url": "https://github.com/edumucelli/docking/releases/download/v2.24.0/docking-2.24.0-linux-x86_64.pkg.tar.zst"
+      "hash": "sha256-pD19Ne6IN1wilQwOlPVWneqwhbgL5o/X/JwNacDX4SQ=",
+      "url": "https://github.com/edumucelli/docking/releases/download/v2.25.0/docking-2.25.0-linux-x86_64.pkg.tar.zst"
     }
   },
   "update": {
     "method": "github",
     "repo": "edumucelli/docking"
   },
-  "version": "2.24.0"
+  "version": "2.25.0"
 }
