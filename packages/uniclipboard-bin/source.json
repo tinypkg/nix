@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-VbIBZj+fonNngeF3NZu1T2IahbL8ZRbEczuAeHzwwjM=",
-      "url": "https://github.com/UniClipboard/UniClipboard/releases/download/v1.4.0/UniClipboard_1.4.0_arm64.deb"
+      "hash": "sha256-CIi2Qvu2lNu4uwgn8q8lVbqPpBEWIhiZ3B90GG8+eO4=",
+      "url": "https://github.com/UniClipboard/UniClipboard/releases/download/v1.5.0/UniClipboard_1.5.0_arm64.deb"
     },
     "x86_64-linux": {
-      "hash": "sha256-dMwtiriMEp04BLiIkNwTprOvxiZfi6IHSGIDsyEqzeI=",
-      "url": "https://github.com/UniClipboard/UniClipboard/releases/download/v1.4.0/UniClipboard_1.4.0_amd64.deb"
+      "hash": "sha256-bwhYsnA3Z8FIKfdvbvr+UyQ1GIEqo7XO7stpNvN98pE=",
+      "url": "https://github.com/UniClipboard/UniClipboard/releases/download/v1.5.0/UniClipboard_1.5.0_amd64.deb"
     }
   },
   "update": {
     "method": "github",
     "repo": "UniClipboard/UniClipboard"
   },
-  "version": "1.4.0"
+  "version": "1.5.0"
 }
