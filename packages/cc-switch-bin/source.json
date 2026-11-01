@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-M8Vwnjmh//86v2vYw1zMMh8AEVkRXsqyrBlbpDj/r4k=",
-      "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.23/CC-Switch-v4.0.23-Linux-arm64.deb"
+      "hash": "sha256-KzPbHJt0uRtQK7Br3T5DeoV+Bj6rEsF89W2cvBVa4qA=",
+      "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.24/CC-Switch-v4.0.24-Linux-arm64.deb"
     },
     "x86_64-linux": {
-      "hash": "sha256-edH4NjdtB3SRwUAW1huEPl666IWN2AcihSJGl6LkfDM=",
-      "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.23/CC-Switch-v4.0.23-Linux-x86_64.deb"
+      "hash": "sha256-dNnTexx7DKY/n6yYcpcCDJkfbOHbGzjZLEbpmq+rnYs=",
+      "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.24/CC-Switch-v4.0.24-Linux-x86_64.deb"
     }
   },
   "update": {
     "method": "github",
     "repo": "farion1231/cc-switch"
   },
-  "version": "4.0.23"
+  "version": "4.0.24"
 }
