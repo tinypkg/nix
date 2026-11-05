@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-iv/Iw/gKmHs0ckBUmt557QjpdwyU3DpnQdhHJo3BWYU=",
-      "url": "https://github.com/edumucelli/docking/releases/download/v2.28.2/docking-2.28.2-linux-aarch64.pkg.tar.xz"
+      "hash": "sha256-j047ENrMRhucv1T/Yh6ozN9NhN8KfDUeOtVGPm5RLqc=",
+      "url": "https://github.com/edumucelli/docking/releases/download/v2.28.3/docking-2.28.3-linux-aarch64.pkg.tar.xz"
     },
     "x86_64-linux": {
-      "hash": "sha256-zCTQk+I/RAiWFz+gGB802OPMU6Adt75Vu1zHqjGk4pQ=",
-      "url": "https://github.com/edumucelli/docking/releases/download/v2.28.2/docking-2.28.2-linux-x86_64.pkg.tar.zst"
+      "hash": "sha256-Qcfn3ImupF0bZIc/JkUbQvubE8heZDEnXzNKArrObe4=",
+      "url": "https://github.com/edumucelli/docking/releases/download/v2.28.3/docking-2.28.3-linux-x86_64.pkg.tar.zst"
     }
   },
   "update": {
     "method": "github",
     "repo": "edumucelli/docking"
   },
-  "version": "2.28.2"
+  "version": "2.28.3"
 }
