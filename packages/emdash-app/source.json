@@ -1,13 +1,13 @@
 {
   "sources": {
     "x86_64-linux": {
-      "hash": "sha256-2viLLZSxk96fbMewUZ8Ab7Fw4Bm6ww05aqzvtKLLOjk=",
-      "url": "https://github.com/generalaction/emdash/releases/download/v1.2.10/emdash-amd64.deb"
+      "hash": "sha256-KpKvVNhWZCqNUBgyvfcuNQnlLRadgtclPS8s59gyqtM=",
+      "url": "https://github.com/generalaction/emdash/releases/download/v1.2.11/emdash-amd64.deb"
     }
   },
   "update": {
     "method": "github",
     "repo": "generalaction/emdash"
   },
-  "version": "1.2.10"
+  "version": "1.2.11"
 }
