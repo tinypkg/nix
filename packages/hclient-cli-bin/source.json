@@ -2,18 +2,18 @@
   "sources": {
     "aarch64-linux": {
       "fileName": "hclient-cli",
-      "hash": "sha256-NIxVyHpMNF6pwFkeujCOeyhrNAllQ7Hkfk4kV8WDLt4=",
-      "url": "https://dl.lazycatmicroserver.com/hclient-cli/v1.5.1/hclient-cli-linux-arm64"
+      "hash": "sha256-Bama66M9dp/OCR0dVUVYmH3t4Xv4ewr06Bn+9YXzDkE=",
+      "url": "https://dl.lazycatmicroserver.com/hclient-cli/v1.5.7/hclient-cli-linux-arm64"
     },
     "riscv64-linux": {
       "fileName": "hclient-cli",
-      "hash": "sha256-Mq9E8q3amkzGlnFqZRLxdvY+YnNH8ZGOjsh27kz1VAQ=",
-      "url": "https://dl.lazycatmicroserver.com/hclient-cli/v1.5.1/hclient-cli-linux-riscv64"
+      "hash": "sha256-QrokNy3sQCuUBUet0569ywEiGGwiO3s5gS4lbvQ6tqA=",
+      "url": "https://dl.lazycatmicroserver.com/hclient-cli/v1.5.7/hclient-cli-linux-riscv64"
     },
     "x86_64-linux": {
       "fileName": "hclient-cli",
-      "hash": "sha256-oM3ry2Ur2uS6Jv+WgnxVjzaK8Gc62RBUW0SZ+Yl8+mw=",
-      "url": "https://dl.lazycatmicroserver.com/hclient-cli/v1.5.1/hclient-cli-linux-amd64"
+      "hash": "sha256-24ZZRQZGC+UkCMz3NRpj5ctwmQUtBo2wfhsg2qp9ydI=",
+      "url": "https://dl.lazycatmicroserver.com/hclient-cli/v1.5.7/hclient-cli-linux-amd64"
     }
   },
   "update": {
@@ -21,5 +21,5 @@
     "selector": ".version",
     "url": "https://dl.lazycatmicroserver.com/hclient-cli/latest-version.json"
   },
-  "version": "1.5.1"
+  "version": "1.5.7"
 }
