@@ -1,8 +1,8 @@
 {
   "sources": {
     "x86_64-linux": {
-      "hash": "sha256-ycNM6gI6JXnVzEfgp4pjvY5vU74QpctsmgiOhsQFHfQ=",
-      "url": "https://github.com/nowledge-co/con-terminal/releases/download/v0.1.0-beta.182/con-0.1.0-beta.182-linux-x86_64.tar.gz"
+      "hash": "sha256-nCzLmd/xqR+9V/Of6EAJfqwmDg7gvtAzMsMuFxdQskY=",
+      "url": "https://github.com/nowledge-co/con-terminal/releases/download/v0.1.0-beta.183/con-0.1.0-beta.183-linux-x86_64.tar.gz"
     }
   },
   "update": {
@@ -10,5 +10,5 @@
     "repo": "nowledge-co/con-terminal",
     "urlVersionTransform": "dot-beta"
   },
-  "version": "0.1.0-beta.182"
+  "version": "0.1.0-beta.183"
 }
