@@ -1,13 +1,13 @@
 {
   "sources": {
     "x86_64-linux": {
-      "hash": "sha256-htAAdl2AU3ehRN060ri4L+rZIUIbZfrl9ovjgTH6tic=",
-      "url": "https://github.com/KaringX/karing/releases/download/v1.2.26.2933/karing_1.2.26.2933_linux_amd64.deb"
+      "hash": "sha256-nMSEEhVKMLnWSwduDvd7t+0p6NGROlF5d+XHBuOgzfE=",
+      "url": "https://github.com/KaringX/karing/releases/download/v1.2.26.2934/karing_1.2.26.2934_linux_amd64.deb"
     }
   },
   "update": {
     "method": "github",
     "repo": "KaringX/karing"
   },
-  "version": "1.2.26.2933"
+  "version": "1.2.26.2934"
 }
