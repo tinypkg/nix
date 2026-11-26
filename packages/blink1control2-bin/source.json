@@ -1,13 +1,13 @@
 {
   "sources": {
     "x86_64-linux": {
-      "hash": "sha256-284bHSajusyx1th6nlHmHl3+TFJ4DmHimvhiTdXlwws=",
-      "url": "https://github.com/todbot/Blink1Control2/releases/download/v2.3.0/Blink1Control2-2.3.0-linux-amd64.deb"
+      "hash": "sha256-CkIHxDyMLlh0VZoy98zlVHtru3l7dWR36JXwBBtr0U0=",
+      "url": "https://github.com/todbot/Blink1Control2/releases/download/v2.4.0/Blink1Control2-2.4.0-linux-amd64.deb"
     }
   },
   "update": {
     "method": "github",
     "repo": "todbot/Blink1Control2"
   },
-  "version": "2.3.0"
+  "version": "2.4.0"
 }
