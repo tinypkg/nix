@@ -1,17 +1,17 @@
 {
   "sources": {
     "aarch64-linux": {
-      "hash": "sha256-zFMIZbtbVHYl4MGcwtlT4zMmMCud2cXy0IlPxFZp+fE=",
-      "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.43/CC-Switch-v4.0.43-Linux-arm64.deb"
+      "hash": "sha256-XHW155fclEYq7nTroK60qS9OOqICcTnyQ3a4e2jKcGE=",
+      "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.44/CC-Switch-v4.0.44-Linux-arm64.deb"
     },
     "x86_64-linux": {
-      "hash": "sha256-4LDqHpYlg/9YX/VLDLvPm6t6DrLuOTVlXHQviuayDRA=",
-      "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.43/CC-Switch-v4.0.43-Linux-x86_64.deb"
+      "hash": "sha256-hyaxMjnlIEsS6P7+e5WDs05AfSKxcsbrj+h7QigIDGU=",
+      "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.44/CC-Switch-v4.0.44-Linux-x86_64.deb"
     }
   },
   "update": {
     "method": "github",
     "repo": "farion1231/cc-switch"
   },
-  "version": "4.0.43"
+  "version": "4.0.44"
 }
